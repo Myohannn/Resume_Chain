@@ -266,10 +266,10 @@
 				"type": "function"
 			}
 		];
-		
-		var web3 = new Web3('ws://localhost:7545');		
 
-		var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
+		var web3 = new Web3('ws://localhost:7545');
+
+		var mycontract = new web3.eth.Contract(abi, '0x012281ACdCd4d49A646880A1A34C2000F8ee746A');
 
 		function query_hyperledger() {
 
@@ -293,7 +293,7 @@
 					var myobj = JSON.parse(response);
 
 					if (response != "{}") {
-						$("#wichtig").append(`<p><center>User name:<b> ${$("#input_query_hf").val()}</b></center></p>`);
+						$("#wichtig").append(`<p>User name:<b> ${$("#input_query_hf").val()}</b></p>`);
 						for (var i = 0; i < myobj.length; i++) {
 							var s = `myobj.Object${i}.time`
 							var time = eval(s)
@@ -304,10 +304,10 @@
 							var c = `myobj.Object${i}.contact`
 							var contact_info = eval(c)
 
-							$("#wichtig").append(`<p>Phone number:<b> ${contact_info}</b></p>`);
-							$("#wichtig").append(`<p>Timestamp: ${time}`);
-							$("#wichtig").append(`<p>Working experience:<b> ${work_exp}</b></p>`);
-							$("#wichtig").append(`<p>Education:<b> ${edu_exp}</b></p>`);
+							$("#wichtig").append(`<p>Timestamp: ${time}</p>`);
+							$("#wichtig").append(`<p>Work Experience: <b>${work_exp}</b></p>`);
+							$("#wichtig").append(`<p>Education Experience: <b>${edu_exp}</b></p>`);
+							$("#wichtig").append(`<p>Contact: <b>${contact_info}</b></p>`);
 
 
 						}
@@ -363,10 +363,10 @@
 
 					}).catch(console.log);
 
-					$("#wichtig").append(`<p><center>Added following data to user <b> ${html_response.key}:</b></center></p>`);
+					$("#wichtig").append(`<p>User name:<b> ${html_response.key}</b></p>`);
 					$("#wichtig").append(`<p>Timestamp: ${html_response.time}</p>`);
-					$("#wichtig").append(`<p>WorkExp:<b> ${html_response.workExp}</b></p>`);
-					$("#wichtig").append(`<p>EduExp:<b> ${html_response.eduExp}</b></p>`);
+					$("#wichtig").append(`<p>Work Experience:<b> ${html_response.workExp}</b></p>`);
+					$("#wichtig").append(`<p>Education Experience:<b> ${html_response.eduExp}</b></p>`);
 					$("#wichtig").append(`<p>Contact:<b> ${html_response.contact}</b></p>`);
 
 					var modal = document.getElementById("myModal");
@@ -392,7 +392,7 @@
 
 
 			$("#wichtig").empty();
-			$("#wichtig").append(`<p><center>Added following data to candidate name <b> ${$("#input_eth_to_hf").val()}:</b></center></p>`);
+			$("#wichtig").append(`<p>Added following data to candidate name: <b> ${$("#input_eth_to_hf").val()}</b></p>`);
 
 			var length = await mycontract.methods.length($("#input_eth_to_hf").val()).call()
 			console.log(length);
@@ -413,9 +413,11 @@
 
 							},
 							success: function (html_response) {
-								$("#wichtig").append(`<p>WorkExp:<b> ${html_response.workExp}</b></p>`);
-								$("#wichtig").append(`<p>EduExp:<b> ${html_response.eduExp}</b></p>`);
+
+								$("#wichtig").append(`<p>Work Experience:<b> ${html_response.workExp}</b></p>`);
+								$("#wichtig").append(`<p>Education Experience:<b> ${html_response.eduExp}</b></p>`);
 								$("#wichtig").append(`<p>Contact:<b> ${html_response.contact}</b></p>`);
+
 								var modal = document.getElementById("myModal");
 								modal.style.display = "block";
 

@@ -268,7 +268,7 @@
 
 			var web3 = new Web3('ws://localhost:7545');
 
-			var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
+			var mycontract = new web3.eth.Contract(abi, '0x012281ACdCd4d49A646880A1A34C2000F8ee746A');
 
 			async function query_ethereum() {
 
@@ -291,7 +291,7 @@
 						modal.style.display = "none";
 					}
 				} else {
-					$("#wichtig").append(`<p><center>Product key:<b> ${$("#key_qafe").val()}</b></center></p>`);
+					$("#wichtig").append(`<p>User name:<b> ${$("#key_qafe").val()}</b></p>`);
 					for (var i = 0; i < length; i++) {
 						var response = await mycontract.methods.retrieve($("#key_qafe").val(), i).call();
 
@@ -330,11 +330,9 @@
 				var array = await web3.eth.getAccounts();
 				web3.eth.defaultAccount = array[0];
 
-				mycontract.methods.store($("#key_name").val(), $("#key_phone_number").val(), $("#key_education").val(), $("#key_working_experience").val()).send({ from: web3.eth.defaultAccount, gas: '1000000' }).then(function (response) {
+				mycontract.methods.store($("#key_name").val(), $("#key_working_experience").val(), $("#key_education").val(), $("#key_phone_number").val()).send({ from: web3.eth.defaultAccount, gas: '1000000' }).then(function (response) {
 					$("#wichtig").empty()
-					$("#wichtig").append(`<p>Your data was recorded on the Ethereum blockain. You can check it out by following this link. Click the "Click to see More" button to expand the view. Then, go to "Input Data:" and select "UTF-8" at the drop-down field "View Input As" to query the recorded data on the Ethereum blockchain:</p>`);
-					$("#wichtig").append(`<a id="lets">https://goerli.etherscan.io/tx/${response.transactionHash}</a>`);
-					$("#lets").attr("href", `https://goerli.etherscan.io/tx/${response.transactionHash}`);
+					$("#wichtig").append(`<p>Your data was recorded on the Ethereum blockain. </p>`);
 
 					var modal = document.getElementById("myModal");
 					modal.style.display = "block";
