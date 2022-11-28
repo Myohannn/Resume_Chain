@@ -10,47 +10,49 @@
 		}
 
 
-		.left_part{
+		.left_part {
 			margin-top: 90px;
 			margin-left: 180px;
 		}
 
-		.input_b_fetch_from_eth{
+		.input_b_fetch_from_eth {
 			margin: 10px;
 		}
 
-		#input_eth_to_hf, #copy_ethereum_to_hyperledger{
+		#input_eth_to_hf,
+		#copy_ethereum_to_hyperledger {
 			margin-left: 10px;
 		}
 
 
-		.input_b_name{
-		    width: 2000px;
-		    height: 500px;
-		    padding: 10px;
-		    padding-right: 138px;
+		.input_b_name {
+			width: 2000px;
+			height: 500px;
+			padding: 10px;
+			padding-right: 138px;
 		}
 
-		.input_b_pn{
-		    padding: 10px;
-		    padding-right: 70px;
+		.input_b_pn {
+			padding: 10px;
+			padding-right: 70px;
 		}
 
-		.input_b_education{
-		    padding: 10px;
-		    padding-right: 105px;
+		.input_b_education {
+			padding: 10px;
+			padding-right: 105px;
 		}
 
-		.input_b_wp{
-		    padding: 10px;
-		    padding-right: 30px;
+		.input_b_wp {
+			padding: 10px;
+			padding-right: 30px;
 		}
 
-		.input_additional_data{
+		.input_additional_data {
 			margin-left: 10px;
 		}
 
-		#input_query_hf, #query_hyperledger{
+		#input_query_hf,
+		#query_hyperledger {
 			margin-left: 10px;
 		}
 
@@ -99,7 +101,8 @@
 		.close:hover,
 		.close:focus {
 			color: #000;
-			text-decoration: none;ackground-position-x: 1000px;
+			text-decoration: none;
+			ackground-position-x: 1000px;
 			background-position-y: 80px;
 			cursor: pointer;
 		}
@@ -148,8 +151,8 @@
 		<b class="input_b_wp">Working experience</b>
 		<input id="key_working_experience" type="text" placeholder="Working experience"><br></br>
 
-		<input class="input_additional_data" id="invoke_hyperledger" type="submit" value="Click to log additional asset data to Hyperledger!"
-			onclick="invoke_hyperledger()"><br></br><br></br>
+		<input class="input_additional_data" id="invoke_hyperledger" type="submit"
+			value="Click to log additional asset data to Hyperledger!" onclick="invoke_hyperledger()"><br></br><br></br>
 
 		<input name="key" id="input_query_hf" type="text" placeholder="Type in the key of asset!"><br></br>
 		<input id="query_hyperledger" type="submit" value="Click to query asset data from Hyperledger!"
@@ -167,7 +170,8 @@
 	</div>
 
 	<script>
-		let web3 = new Web3(Web3.givenProvider);
+
+		var web3 = new Web3('ws://localhost:7545');
 
 		var abi = [
 			{
@@ -266,7 +270,7 @@
 
 		ethereum.enable()
 
-		var mycontract = new web3.eth.Contract(abi, '0x789e9750BBA7E92f5A4a2e752bcc2c47485929E9');
+		var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
 
 		function query_hyperledger() {
 
