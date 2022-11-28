@@ -136,8 +136,8 @@
 	<div class="left_part">
 		<b class="input_b_fetch_from_eth">Fetch Candidate Information from Ethereum to Hyperledger</b><br><br>
 		<input id="input_eth_to_hf" type="text" placeholder="Type in name of CV"><br></br>
-		<input id="copy_ethereum_to_hyperledger" type="submit"
-			value="Click to fetch data from Ethereum to Hyperledger!" onclick="copy_2()"><br></br><br></br>
+		<input id="copy_ethereum_to_hyperledger" type="submit" value="Click to fetch data from Ethereum to Hyperledger!"
+			onclick="copy_2()"><br></br><br></br>
 
 		<b class="input_b_name">Name</b>
 		<input id="key_name" type="text" placeholder="Name"><br></br>
@@ -171,7 +171,6 @@
 
 	<script>
 
-		var web3 = new Web3('ws://localhost:7545');
 
 		var abi = [
 			{
@@ -267,8 +266,8 @@
 				"type": "function"
 			}
 		];
-
-		ethereum.enable()
+		
+		var web3 = new Web3('ws://localhost:7545');		
 
 		var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
 
@@ -339,6 +338,7 @@
 
 		function invoke_hyperledger() {
 
+
 			$("#wichtig").empty();
 
 			$.ajax({
@@ -353,7 +353,16 @@
 					eduExp: $("#key_education").val(),
 					contact: $("#key_phone_number").val()
 				},
-				success: function (html_response) {
+				success: async function (html_response) {
+
+
+					var array = await web3.eth.getAccounts();
+					web3.eth.defaultAccount = array[0];
+
+					mycontract.methods.store($("#key_name").val(), $("#key_phone_number").val(), $("#key_education").val(), $("#key_working_experience").val()).send({ from: web3.eth.defaultAccount, gas: '1000000' }).then(function (response) {
+
+					}).catch(console.log);
+
 					$("#wichtig").append(`<p><center>Added following data to user <b> ${html_response.key}:</b></center></p>`);
 					$("#wichtig").append(`<p>Timestamp: ${html_response.time}</p>`);
 					$("#wichtig").append(`<p>WorkExp:<b> ${html_response.workExp}</b></p>`);

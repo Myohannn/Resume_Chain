@@ -156,8 +156,7 @@
 
 		<b class="input_b_qafe"> Query data from Ethereum</b><br><br>
 		<input name="key" id="key_qafe" type="text" placeholder="Type in name of CV"><br></br>
-		<input id="query_ethereum" type="submit" value="Click to query data from Ethereum!"
-			onclick="query_ethereum()">
+		<input id="query_ethereum" type="submit" value="Click to query data from Ethereum!" onclick="query_ethereum()">
 		<br></br><br></br>
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
@@ -171,8 +170,6 @@
 		</div>
 
 		<script>
-
-			var web3 = new Web3('ws://localhost:7545');
 
 			var abi = [
 				{
@@ -268,6 +265,8 @@
 					"type": "function"
 				}
 			];
+
+			var web3 = new Web3('ws://localhost:7545');
 
 			var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
 
