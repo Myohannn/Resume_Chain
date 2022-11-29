@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This project is an implementation of data sharing between Ethereum and Hyperledger Fabric, which can also be regarded as the blockchain interoperability between permissionless blockchain and permissioned blockchain. Please feel free to clone it for testing and development purposes. 
+This project is an implementation of data sharing application between Ethereum and Hyperledger Fabric, which can also be regarded as the blockchain interoperability between permissionless blockchain and permissioned blockchain. Please feel free to clone it for testing and development purposes. 
 
-## How to run?
+## Installation Guide
 
 *Clone the repository*
 
@@ -22,6 +22,10 @@ git clone https://github.com/Myohannn/resume_chain.git
 ```
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.0.0
 ```
+
+*Install Go*
+
+[Go installation guide](https://go.dev/dl/)
 
 *Install npm and node.js:*
 
