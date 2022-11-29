@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is an implementation of data sharing application between Ethereum and Hyperledger Fabric, which can also be regarded as the blockchain interoperability between permissionless blockchain and permissioned blockchain. Please feel free to clone it for testing and development purposes. 
+This project is an implementation of data sharing application between Ethereum and Hyperledger Fabric. It can also be regarded as the blockchain interoperability between permissionless blockchain and permissioned blockchain. Please feel free to clone it for testing and development purposes. 
 
 ## Installation Guide
 

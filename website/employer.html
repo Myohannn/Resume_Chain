@@ -172,103 +172,10 @@
 	<script>
 
 
-		var abi = [
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_key",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_workExp",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_eduExp",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_contact",
-						"type": "string"
-					}
-				],
-				"name": "store",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_key",
-						"type": "string"
-					}
-				],
-				"name": "length",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_key",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "retrieve",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			}
-		];
+		var abi = [{ "inputs": [{ "internalType": "string", "name": "_key", "type": "string" }], "name": "length", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_key", "type": "string" }, { "internalType": "uint256", "name": "index", "type": "uint256" }], "name": "retrieve", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }, { "internalType": "string", "name": "", "type": "string" }, { "internalType": "string", "name": "", "type": "string" }, { "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_key", "type": "string" }, { "internalType": "string", "name": "_workExp", "type": "string" }, { "internalType": "string", "name": "_eduExp", "type": "string" }, { "internalType": "string", "name": "_contact", "type": "string" }], "name": "store", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
 
 		var web3 = new Web3('ws://localhost:7545');
-		
+
 		// replace the contract address here
 		var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
 
