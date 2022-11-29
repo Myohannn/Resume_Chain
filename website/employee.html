@@ -79,7 +79,7 @@
 		.modal-content {
 			background-color: #fefefe;
 			margin: auto;
-			left_part padding: 20px;
+			padding: 20px;
 			border: 1px solid #888;
 			width: 80%;
 		}
@@ -268,13 +268,13 @@
 
 			var web3 = new Web3('ws://localhost:7545');
 
-			var mycontract = new web3.eth.Contract(abi, '0x012281ACdCd4d49A646880A1A34C2000F8ee746A');
+			var mycontract = new web3.eth.Contract(abi, '0x02f378FbAF7d546240978596213C4c09Ad705a85');
 
 			async function query_ethereum() {
 
 				$("#wichtig").empty()
 
-				var length = await mycontract.methods.length($("#key_qafe").val()).call()
+				var length = await mycontract.methods.length($("#key_qafe").val()).call({ from: web3.eth.defaultAccount, gas: '1000000' })
 
 				console.log(length)
 
@@ -293,7 +293,7 @@
 				} else {
 					$("#wichtig").append(`<p>User name:<b> ${$("#key_qafe").val()}</b></p>`);
 					for (var i = 0; i < length; i++) {
-						var response = await mycontract.methods.retrieve($("#key_qafe").val(), i).call();
+						var response = await mycontract.methods.retrieve($("#key_qafe").val(), i).call({ from: web3.eth.defaultAccount, gas: '1000000' });
 
 						var time = new Date(response[0] * 1000)
 
